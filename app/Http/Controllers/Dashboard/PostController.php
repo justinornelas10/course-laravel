@@ -15,7 +15,8 @@ class PostController extends Controller
      */
     public function index()
     {
-
+        $posts = Post::paginate(3);
+        return view('dashboard/post/index', compact('posts'));
     }
 
     /**
@@ -34,8 +35,7 @@ class PostController extends Controller
     {
         Post::create($request->validated());
         return to_route('post.index');
-        // dd($request->all());
-        // dd(request()->get('title'));
+        
     }
 
     /**
