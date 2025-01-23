@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Post\StoreRequest;
 use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
@@ -15,47 +16,6 @@ class PostController extends Controller
     public function index()
     {
 
-        // $post = Post::find(3);
-        $category = Category::find(1);
-        // dd($post->category->title);
-        dd($category->posts[2]->title);
-
-
-        // return response()->json([
-        //     'name' => 'Justin',
-        //     'state' => 'Jal'
-        // ]);
-        
-        // --------------CREATE
-        // Post::create(
-        //     [
-        //         'title' => 'test title post 1',
-        //         'slug' => 'test slug post 2',
-        //         'content' => 'test content',
-        //         'category_id' => 1,
-        //         'description' => 'test description',
-        //         'posted' => 'not',
-        //         'image' => 'test image',
-        //     ]
-        // );
-
-        //----------------READ
-        // dd($post);
-
-
-        //----------------UPDATE
-        // $post->update(
-        //     [
-        //         'title' => 'new Title updated',
-        //         'slug' => 'test slug 1 slugged',
-        //         'content' => 'test content updated',
-        //         'image' => 'test image updated',
-        //     ]
-        // );
-
-        //----------------DELETE
-        // $post->delete($post);
-
     }
 
     /**
@@ -63,15 +23,19 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::pluck('id','title');
+        return view('dashboard.post.create', compact('categories'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
-        //
+        Post::create($request->validated());
+        return to_route('post.index');
+        // dd($request->all());
+        // dd(request()->get('title'));
     }
 
     /**
