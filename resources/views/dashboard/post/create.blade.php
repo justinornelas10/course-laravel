@@ -1,13 +1,8 @@
 @extends('dashboard.layout')
 
 @section('content')
-    @if ($errors->any())
-        @foreach ($errors->all() as $e)
-            <div>
-                {{ $e }}
-            </div>
-        @endforeach
-    @endif
+
+    @include('dashboard/fragment/_errors-form')
 
     <form action="{{ route('post.store') }}" method="POST">
         @csrf
