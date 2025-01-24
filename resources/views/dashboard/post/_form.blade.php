@@ -31,4 +31,12 @@
     </select>
 </div>
 
+<div>
+    @if (isset($task) && $task == 'edit')
+        <label>Image</label>
+        <input type="file" name="image">
+    @endif
+</div>
+
+
 <button type="submit">Send</button>
