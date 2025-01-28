@@ -2,9 +2,10 @@
 
 @section('content')
 
-    <a href="{{ route('post.create' )}}">Create</a>
+    <a href="{{ route('post.create' )}}" class=" text-white text-2xl p-4 bg-blue-400">Create</a>
 
-    <table>
+
+    <table class="table">
         <thead>
             <tr>
                 <th>
