@@ -7,21 +7,21 @@
     <table>
         <thead>
             <tr>
-                <td>
+                <th>
                     Id
-                </td>
-                <td>
+                </th>
+                <th>
                     Title
-                </td>
-                <td>
+                </th>
+                <th>
                     Posted
-                </td>
-                <td>
+                </th>
+                <th>
                     Category
-                </td>
-                <td>
+                </th>
+                <th>
                     Options
-                </td>
+                </th>
             </tr>
         </thead>
         <tbody>
