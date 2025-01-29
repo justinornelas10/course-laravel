@@ -2,17 +2,17 @@
 
 @section('content')
 
-    <a href="{{ route('category.create' )}}">Create</a>
+    <a href="{{ route('category.create' )}}" class=" text-white text-2xl p-4 bg-blue-400">Create</a>
 
-    <table>
+    <table class="table">
         <thead>
             <tr>
-                <td>
+                <th>
                     Id
-                </td>
-                <td>
+                </th>
+                <th>
                     Title
-                </td>
+                </th>
             </tr>
         </thead>
         <tbody>
