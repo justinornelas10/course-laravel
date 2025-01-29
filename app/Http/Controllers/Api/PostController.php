@@ -15,6 +15,11 @@ class PostController extends Controller
         return response()->json(Post::paginate(5));
     }
 
+    public function all()
+    {
+        return response()->json(Post::get());
+    }
+
     public function store(StoreRequest $request)
     {
         return response()->json(Post::create($request->validated()));
