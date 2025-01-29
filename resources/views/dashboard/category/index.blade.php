@@ -13,6 +13,9 @@
                 <th>
                     Title
                 </th>
+                <th>
+                    Slug
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -23,6 +26,9 @@
                     </td>
                     <td>
                         {{ $c->title }}
+                    </td>
+                    <td>
+                        {{ $c->slug }}
                     </td>
                     <td>
                         <a href="{{ route('category.show',$c)}}">show</a>
