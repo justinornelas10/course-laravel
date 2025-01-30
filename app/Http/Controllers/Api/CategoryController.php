@@ -60,4 +60,10 @@ class CategoryController extends Controller
 
         return response()->json($posts);
     }
+
+    public function slug($slug) {
+        $category=Category::where("slug",$slug)->firstOrFail();
+
+        return response()->json($category);
+    }
 }

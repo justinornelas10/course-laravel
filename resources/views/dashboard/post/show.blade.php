@@ -4,6 +4,9 @@
     <h1 class="text-2xl font-bold bg-blue-400 p-4">Title</h1>
     <h1>{{ $post->title }}</h1>
 
+    <h1 class="text-2xl font-bold bg-blue-400 p-4">Slug</h1>
+    <h1>{{ $post->slug }}</h1>
+
     <h1 class="text-2xl font-bold bg-blue-400 p-2">Posted</h1>
     <span>{{ $post->posted }}</span>
     
