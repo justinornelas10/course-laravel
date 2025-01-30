@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Category\PutRequest;
 use App\Http\Requests\Category\StoreRequest;
 use App\Models\Category;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -41,5 +42,22 @@ class CategoryController extends Controller
     {
         $category->delete();
         return response()->json("ok");
+    }
+
+    public function posts(Category $category) {
+        
+        //Metodo --- Query Builder 
+        // $posts = Post::join('categories',"categories.id","=","posts.category_id")
+        // ->select('posts.*', 'categories.title as category')
+        // ->where("categories.id",$category->id)
+        // ->get();
+
+        //Metodo --- Eloquent
+
+        $posts = Post::with("category")
+        ->where("category_id",$category->id)
+        ->toSql();
+
+        return response()->json($posts);
     }
 }
